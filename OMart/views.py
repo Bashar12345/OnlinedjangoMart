@@ -3,25 +3,15 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+
 def home(request):
-    title="Omart-Homepage"
-    return render(request,'home.html', {'title': title})
+    title = "Omart-Homepage"
+    return render(request, 'OMart/home.html', {'title': title})
 
 
 def about(request):
     title = "Omart-about"
-    return render(request,'home.html', {'title': title})
-
-
-
-
-
-
-
-
-
-
-
+    return render(request, 'OMart/about.html', {'title': title})
 
 
 # def home(request):
