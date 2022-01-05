@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "users.app.UsersConfig"
+    'users.app.UsersConfig',
     'OMart.app.OMartConfig',
     'django.contrib.admin',
     'django.contrib.auth',
