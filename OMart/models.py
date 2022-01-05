@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class user(models.Model):
-    usernauser_email = models.CharField(max max_length=200)
+    usernauser_email = models.CharField(max_length=200)
     user_name= models.TextField()
-    date_of_sign_up= models.DateTimeField()
+    date_of_sign_up = models.DateTimeField(efault=timezone.now)
 
 class auction_post(models.Model):
     title = models.CharField(max_length=500)
