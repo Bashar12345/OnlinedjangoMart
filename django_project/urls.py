@@ -19,7 +19,10 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Omart/', include('OMart.urls')),
-   # path('', include('userLog.urls')),
+    
+    #path('users/', include('OMart.urls')),
+
+    # path('', include('userLog.urls')),
 
    
 ]
