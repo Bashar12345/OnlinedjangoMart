@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationFrom
 
-# Create your views here.
+def register(request):
+    form = UserCreationFrom()
+    return render(request,'users/register.html',{form:'form'})
