@@ -20,7 +20,7 @@ from users import views as user_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Omart/', include('OMart.urls')),
-    path('register/', user_views.register,name='Omart-register'),
+    path('register/', user_views.register, name='Omart-register'),
     # path('', include('userLog.urls')),
 
    
