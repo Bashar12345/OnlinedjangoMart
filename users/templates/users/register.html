@@ -2,26 +2,26 @@
 {%block body%}
 {{title}}
 <div class="content-section">
-    <form method="POST">
+    <form action='' method="POST">
         {%csrf_token%}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">
                 Try to Sign Up now!
             </legend>
             <!-- {#{form.as_p}#} this will make form like p tag does-->
-            {{form.as_p}}
+            {{ form.as_table }}
             <dvi class="form-group">
-                <button class="btn btn-outline-info" type="submit">
+                <button class="btn btn-outline-info" type="submit"> Sign Up</button>
                     <div class="border-top pt-3">
                         <small class="text-muted">
                             Already have an account?
                             <a href="#" class="ml-2">Signin</a>
                         </small>
                     </div>
-                </button>
+              
             </dvi>
 
         </fieldset>
     </form>
 </div>
-{%endblock body%}
+{% endblock body %}
