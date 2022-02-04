@@ -8,9 +8,12 @@ def register(request):
 
     if request.method == 'POST':
       form = UserCreationForm(request.POST)
+      print(form)
       if form.is_valid():
           form.save()
-          username =form.cleaned_data.get('username') # username database e ase na need fixing
+          # username =form.cleaned_data.get('username') # username database e ase na need fixing
+          username = form.cleaned_data['username']
+          print(username)
           messages.success(request,f'Account created for {username}!')
           return redirect('Omart-home')
     else:
