@@ -1,27 +1,35 @@
 {% extends 'OMart/layout.html' %}
+{% load rispy_forms_tag%}
 {%block body%}
 {{title}}
 <div class="content-section">
-    <form  method="POST">
+    <form method="POST">
         {%csrf_token%}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">
                 Try to Sign Up now!
             </legend>
             <!-- {#{form.as_p}#} this will make form like p tag does-->
-            {{ form.as_table}}
-            <dvi class="form-group">
-                <button class="btn btn-outline-info" type="submit"> Sign Up</button>
-                    <div class="border-top pt-3">
-                        <small class="text-muted">
-                            Already have an account?
-                            <a href="#" class="ml-2">Signin</a>
-                        </small>
-                    </div>
-              
-            </dvi>
+
+            <div class="form-group">
+                {#% crispy form %#}
+                {{ form|crispy }}
+            </div>
 
         </fieldset>
+        <!-- <label for="email">Your name: </label>
+                    <input id="email" type="text" name="enail_id" required> -->
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit" value="submit"> Sign Up</button>
+        </div>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account?
+                <a href="#" class="ml-2">Signin</a>
+            </small>
+        </div>
+        </div>
+
     </form>
 </div>
 {% endblock body %}
