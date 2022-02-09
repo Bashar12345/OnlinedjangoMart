@@ -5,7 +5,7 @@ from django.db import models
 
 class User(models.Model):
     #email = forms.EmailField(label='Enter your Email:', max_length=150)
-    email_id = models.CharField(max_length=150)
+    email = models.CharField(max_length=150)
     password = models.CharField(max_length=50)
 
 

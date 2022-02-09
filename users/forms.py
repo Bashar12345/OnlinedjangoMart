@@ -32,4 +32,8 @@ class user_registration_form(forms.ModelForm):
 
     #username= forms.CharField(label='Enter your Username:',max_length=100)
     
-
+class user_login_form(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=('email','password')
+        
