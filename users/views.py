@@ -13,14 +13,26 @@ def register(request):
       if form.is_valid():
             print(form.cleaned_data)
             form.save()
-            username =form.cleaned_data.get('username') # username database e ase na 
+            name =form.cleaned_data.get('name') # username database e ase na 
           # need fixing
-            print(username)
+            print(name)
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
+            confrim_password = form.cleaned_data.get('confrim_password')
+            instrument_purchase = form.cleaned_data.get('instrument_purchase')
+            house_no = form.cleaned_data.get('house_no')
+            address_line1 = form.cleaned_data.get('address_line1')
+            address_line2 = form.cleaned_data.get('address_line2')
+            telephone = form.cleaned_data.get('telephone')
+            zip_code = form.cleaned_data.get('zip_code')
+            state = form.cleaned_data.get('state')
+            country = form.cleaned_data.get('country')
+    
             # username = form.cleaned_data['username']
             # email = form.cleaned_data['email']
             # print(username)
             # print(email)
-            messages.success(request,f'Account created for {username}!')
+            messages.success(request,f'Account created for {name}!')
             return redirect('Omart-home')
     else:
       form = user_registration_form()

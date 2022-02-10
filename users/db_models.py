@@ -3,18 +3,14 @@ from django.db import models
 # Create your models here.
 
 
-class User(models.Model):
-    #email = forms.EmailField(label='Enter your Email:', max_length=150)
-    email = models.CharField(max_length=150)
-    password = models.CharField(max_length=50)
-
 
 class Customer(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
+    email = models.EmailField(primary_key=True,max_length=100)
     password = models.CharField(max_length=100)
     confrim_password = models.CharField(max_length=100)
-    instrument_purchase = models.CharField(max_length=100)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    #instrument_purchase = models.CharField(max_length=100)
     house_no = models.CharField(max_length=100)
     address_line1 = models.CharField(max_length=100)
     address_line2 = models.CharField(max_length=100)
@@ -25,3 +21,10 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class User(models.Model):
+    #email = forms.EmailField(label='Enter your Email:', max_length=150)
+    email = models.ForeignKey(
+        Customer, on_delete=models.CASCADE, max_length=150)
+    password = models.CharField(max_length=50)

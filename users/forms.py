@@ -1,4 +1,5 @@
 
+from logging import PlaceHolder
 from django import forms 
 from users.db_models import *
 #from django.contrib.auth.models import User 
@@ -8,25 +9,31 @@ from users.db_models import *
 
 class user_registration_form(forms.ModelForm):
     #email = forms.EmailField(label='Enter your Email:', max_length=150)
-    #password = forms.CharField(widget=forms.PasswordInput)
+    #password = forms.CharField(widget=forms.PasswordInput) 
+    # CHOICES = (('Option 1', 'Option 1'),('Option 2', 'Option 2'),)
+    # field = forms.ChoiceField(choices=CHOICES)
+    
     class Meta:
+       
         model= Customer
-        fields = ('name', 'email', 'password', 'instrument_purchase', 'house_no',
-                  'address_line1', 'address_line2', 'telephone', 'zip_code', 'state', 'country')
+        CHOICES = (('none','Select A country'),('bangladesh ', 'Bangladesh'), ('us', 'US'),)
+       
+        fields = ('name', 'email', 'password','house_no','address_line1','address_line2', 'telephone', 'zip_code', 'state', 'country',)  # 'instrument_purchase'
         labels = {'name': 'Enter your Fullname', 
-                  'email': 'Enter your Email Address'}
+                  'email': 'Enter your Email Address',
+                  'address_line1': 'Present Address','address_line2':'Permanent Address'}
         widgets = {
-               'name': forms.TextInput(attrs={'class': 'form-control-lg'}),
+               #'name': forms.TextInput(attrs={'class': 'form-control-lg'}),
                'email': forms.TextInput(attrs={'class': 'form-control-lg'}), 
                'password': forms.PasswordInput(),
-               'instrument_purchase':'',
+               #'instrument_purchase':'',
                'house_no':'',
                'address_line1':'',
                'address_line2':'',
                'telephone':'',
                'zip_code':'',
                'state':'',
-               'country':'',
+               'country': forms.Select(attrs={'class': 'form-select'},choices=CHOICES),
          }
         
 

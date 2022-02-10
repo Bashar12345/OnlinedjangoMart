@@ -1,22 +1,28 @@
 {% extends 'OMart/layout.html' %}
 {% load crispy_forms_tags %}
-{%block body%}
+
+{% block body %}
 
 <div class=" container content-section">
 
     {{title}}
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="logo.jpg" alt=" Logo " width="72" height="72">
+        <h2>Registration </h2>
+    </div>
     <form method="POST" style="padding: 2rem;">
         {%csrf_token%}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">
+            <legend class=" border-bottom mb-4">
                 Try to Sign Up now!
             </legend>
             <!-- {#{form.as_p}#} this will make form like p tag does-->
 
-            <div class="form-group">
+           
                 {% crispy form %}
                 {#{ form|crispy }#}
-            </div>
+            
+          
 
         </fieldset>
         <!-- <label for="email">Your name: </label>
@@ -35,4 +41,9 @@
 </form>
 </div>
 
+
+
+
+
+    </div>
 {% endblock body %}
