@@ -39,6 +39,8 @@ def register(request):
 
     return render(request,'users/register.html', {'form':form, 'title':title})
 
+
+
 def login(request):
     title= 'login'
      

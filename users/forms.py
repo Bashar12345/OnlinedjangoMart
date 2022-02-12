@@ -18,7 +18,8 @@ class user_registration_form(forms.ModelForm):
         model= Customer
         CHOICES = (('none','Select A country'),('bangladesh ', 'Bangladesh'), ('us', 'US'),)
        
-        fields = ('name', 'email', 'password','house_no','address_line1','address_line2', 'telephone', 'zip_code', 'state', 'country',)  # 'instrument_purchase'
+        fields = ('name', 'email', 'password', 'confrim_password', 'house_no', 'address_line1',
+                  'address_line2', 'telephone', 'zip_code', 'state', 'country',)  # 'instrument_purchase'
         labels = {'name': 'Enter your Fullname', 
                   'email': 'Enter your Email Address',
                   'address_line1': 'Present Address','address_line2':'Permanent Address'}
@@ -26,6 +27,7 @@ class user_registration_form(forms.ModelForm):
                #'name': forms.TextInput(attrs={'class': 'form-control-lg'}),
                'email': forms.TextInput(attrs={'class': 'form-control-lg'}), 
                'password': forms.PasswordInput(),
+               'confrim_password' : forms.PasswordInput(),
                #'instrument_purchase':'',
                'house_no':'',
                'address_line1':'',
