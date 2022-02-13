@@ -1,11 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
     email = models.EmailField(primary_key=True,max_length=100)
     password = models.CharField(max_length=100)
     confrim_password = models.CharField(max_length=100)

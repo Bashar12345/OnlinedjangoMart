@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Omart/', include('OMart.urls')),
     path('register/', user_views.register, name='Omart-register'),
-    path('login/',user_views.login,name='Omart-login')
+    #path('login/',user_views.login,name='Omart-login')
     # path('', include('userLog.urls')),
 
    
