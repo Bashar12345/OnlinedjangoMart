@@ -16,17 +16,17 @@ def register(request):
             name =form.cleaned_data.get('name') # username database e ase na 
           # need fixing
             print(name)
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
-            confrim_password = form.cleaned_data.get('confrim_password')
-            instrument_purchase = form.cleaned_data.get('instrument_purchase')
-            house_no = form.cleaned_data.get('house_no')
-            address_line1 = form.cleaned_data.get('address_line1')
-            address_line2 = form.cleaned_data.get('address_line2')
-            telephone = form.cleaned_data.get('telephone')
-            zip_code = form.cleaned_data.get('zip_code')
-            state = form.cleaned_data.get('state')
-            country = form.cleaned_data.get('country')
+            # email = form.cleaned_data.get('email')
+            # password = form.cleaned_data.get('password')
+            # confrim_password = form.cleaned_data.get('confrim_password')
+            # instrument_purchase = form.cleaned_data.get('instrument_purchase')
+            # house_no = form.cleaned_data.get('house_no')
+            # address_line1 = form.cleaned_data.get('address_line1')
+            # address_line2 = form.cleaned_data.get('address_line2')
+            # telephone = form.cleaned_data.get('telephone')
+            # zip_code = form.cleaned_data.get('zip_code')
+            # state = form.cleaned_data.get('state')
+            # country = form.cleaned_data.get('country')
     
             # username = form.cleaned_data['username']
             # email = form.cleaned_data['email']
