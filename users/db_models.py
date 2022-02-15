@@ -7,13 +7,13 @@ from django.db import models
 
 class Customers(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField(primary_key=True,max_length=100)
+    email = models.EmailField(primary_key=True,max_length=150)
     password = models.CharField(max_length=100)
     #confrim_password = models.CharField(max_length=100)
     date_posted = models.DateTimeField(auto_now_add=True)
     #instrument_purchase = models.CharField(max_length=100)
     house_no = models.CharField(max_length=100)
-    #present_address = models.CharField(max_length=500)
+    present_address = models.CharField(max_length=500)
     permanent_address = models.CharField(max_length=500)
     telephone = models.CharField(max_length=100)
     zip_code = models.CharField(max_length=20)
