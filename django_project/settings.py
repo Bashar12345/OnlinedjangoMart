@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'OMart.apps.OmartConfig',
     'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
