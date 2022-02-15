@@ -2,7 +2,7 @@
 from pyexpat.errors import messages
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from matplotlib.pyplot import title
+#from matplotlib.pyplot import title
 from .forms import user_registration_form
 
 def register(request):
