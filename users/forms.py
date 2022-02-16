@@ -1,5 +1,5 @@
 
-from .db_models import *
+from .models import *
 from django import forms 
 #from django.core import validators
 #from django.core.exceptions import ValidationError
@@ -18,8 +18,8 @@ class user_registration_form(forms.ModelForm):
     confrim_password = forms.PasswordInput()
     house_no = forms.CharField(label='Enter the current house No: ', widget=forms.TextInput(attrs={'class': 'form-control'}))
     permanent_address = forms.CharField(label='Enter the Permanent Address:',widget=forms.Textarea(attrs={'class': 'form-control-md','rows':3}))
-    present_address = forms.CharField(label='Enter the Present Address', widget=forms.Textarea(attrs={'class': 'form-control-md','rows':3}))
-    telephone=forms.IntegerField(max_value=11,required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
+    present_address = forms.CharField(label='Enter the Present Address', widget=forms.Textarea(attrs={'class': 'form-control','rows':3}))
+    telephone=forms.IntegerField(required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
     zip_code = forms.IntegerField(max_value=5,min_value=4,label='Enter the postal code of the area',widget=forms.TextInput(attrs={'class':'form-control'}))
 
     #state = forms.ChoiceField(choices=CHOICES),
