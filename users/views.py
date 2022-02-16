@@ -9,7 +9,7 @@ def register(request):
     title='SignUp'
 
     if request.method == 'POST':
-      form = user_registration_form(request.POST or None)
+      form = user_registration_form(request.POST)
       if form.is_valid():
             print(form.cleaned_data)
             form.save()

@@ -3,49 +3,74 @@ from .models import *
 from django import forms 
 #from django.core import validators
 #from django.core.exceptions import ValidationError
-from django.contrib.auth.models import User 
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.models import User 
+#from django.contrib.auth.forms import UserCreationForm
 
 
 
-class user_registration_form(forms.ModelForm):
-    
-    
-    name = forms.CharField(label='Enter your Fullname',min_length =5,max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+class user_register_form(forms.ModelForm):
     email = forms.EmailField(label='Enter your Email Address :', max_length=150, widget=forms.TextInput(attrs={'class': 'form-control-lg'}))
     #'instrument_purchase':'',
     password=forms.PasswordInput()
     confrim_password = forms.PasswordInput()
-    house_no = forms.CharField(label='Enter the current house No: ', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    permanent_address = forms.CharField(label='Enter the Permanent Address:',widget=forms.Textarea(attrs={'class': 'form-control-md','rows':3}))
-    present_address = forms.CharField(label='Enter the Present Address', widget=forms.Textarea(attrs={'class': 'form-control','rows':3}))
+    class Meta:
+        model=User
+        fields = ('email', 'password','confirm_password') 
+
+
+class user_register_profile_form(forms.ModelForm):
+    name = forms.CharField(label='Enter your Fullname',min_length =5,max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
     telephone=forms.IntegerField(required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
+    class Meta:
+        model=customer_profile
+        fields = ('name', 'telephone') #profile_pic,address
+
+class user_register_shipping_form(forms.ModelForm):
+    house_no = forms.CharField(label='Enter the current house No: ', widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    permanent_address = forms.CharField(label='Enter the Permanent Address:',widget=forms.Textarea(attrs={'class': 'form-control-md','rows':3}))
+
+    present_address = forms.CharField(label='Enter the Present Address', widget=forms.Textarea(attrs={'class': 'form-control','rows':3}))
+    
     zip_code = forms.IntegerField(max_value=5,min_value=4,label='Enter the postal code of the area',widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    class Meta:
+        model=shipping_address
+        S_CHOICES = (('dhaka', 'Dhaka'), ('rajshahi', 'Rajshahi'), ('sylhet','Sylhet'),)
+        C_CHOICES = (('none','Select A country'),('bangladesh ', 'Bangladesh'), ('us', 'US'),)
+
+        fields = ('house_no','present_address', 'permanent_address', 'zip_code', 'state', 'country',) 
+        widgets = {
+            'state': forms.Select(attrs={'class': 'form-select'}, choices=S_CHOICES),
+
+            'country': forms.Select(attrs={'class': 'form-select'}, choices=C_CHOICES),
+
+        }
+    
+    
+
+
+
+
+
+
 
     #state = forms.ChoiceField(choices=CHOICES),
     # country = forms.Select(attrs={'class': 'form-select'}, choices=CHOICES),
     #password = forms.CharField(widget=forms.PasswordInput)
     # CHOICES = (('Option 1', 'Option 1'),('Option 2', 'Option 2'),)
     # field = forms.ChoiceField(choices=CHOICES)
-   
 
 
-    class Meta:
 
-        model= Customers
-        S_CHOICES = (('dhaka', 'Dhaka'), ('rajshahi', 'Rajshahi'), ('sylhet','Sylhet'),)
-        C_CHOICES = (('none','Select A country'),('bangladesh ', 'Bangladesh'), ('us', 'US'),)
 
-        #fields = ("username", "password1", "password2", "house_no",)
 
-        fields = ('name', 'email', 'password', 'house_no','present_address', 'permanent_address', 'telephone', 'zip_code', 'state', 'country',)  # 'instrument_purchase'
-        widgets = {
-            'password': forms.PasswordInput(attrs={'class':'form-control'}),
-            'state': forms.Select(attrs={'class': 'form-select'}, choices=S_CHOICES),
 
-            'country': forms.Select(attrs={'class': 'form-select'}, choices=C_CHOICES),
 
-        }
+
+
+
+
         # fields = UserCreationForm.Meta.fields + ('name', 'email', 'password1', 'password2', 'house_no', 'permanent_address','present_address', 'telephone', 'zip_code', 'state', 'country',)  # 'instrument_purchase'
 
 
