@@ -17,33 +17,33 @@
                 Try to Sign Up now!
             </legend>
             <!-- {#{form.as_p}#} this will make form like p tag does-->
+            {#% crispy form %#}
+            {{ form |crispy }}
 
-           
-                {#% crispy form %#}
-                {{ form |crispy }}
-                
-                
-               
+        </fieldset>
+        <fieldset class="form-control">
+            {{ form1 |crispy }}
+
+        </fieldset>
+        <fieldset class="form-control">
             
-          
+            {{ form2 |crispy }}
 
         </fieldset>
         <!-- <label for="email">Your name: </label>
                     <input id="email" type="text" name="enail_id" required> -->
         <br />
         <button class="btn btn-lg btn-outline-info" type="submit" value="submit"> Sign Up</button>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already have an account?
+            <a href="#" class="ml-2">Signin</a>
+        </small>
+    </div>
+    </div>
 
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Already have an account?
-                <a href="#" class="ml-2">Signin</a>
-            </small>
-        </div>
-</div>
-
-</form>
-</div>
-
+    </div>
 
 
 
