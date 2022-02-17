@@ -3,19 +3,31 @@ from pyexpat.errors import messages
 from django.shortcuts import redirect, render
 from django.contrib import messages
 #from matplotlib.pyplot import title
-from .forms import user_registration_form
+from .models import User
+from .forms import user_register_form,user_register_profile_form,user_register_shipping_form
 
 def register(request):
     title='SignUp'
 
     if request.method == 'POST':
-      form = user_registration_form(request.POST)
-      if form.is_valid():
-            print(form.cleaned_data)
-            form.save()
-            name =form.cleaned_data.get('name') # username database e ase na 
-          # need fixing
+      form = user_register_form(request.POST)
+      form1 = user_register_profile_form(request.POST)
+      form2 = user_register_shipping_form(request.POST)
+      
+      
+      if form.is_valid() and form1.is_valid() and form2.is_valid():
+          print(form.cleaned_data)
+          email =form1.cleaned_data.get('email')
+          print(email)
+          if not User.objects.filter(email=email).exists():
+            name =form1.cleaned_data.get('name')
             print(name)
+            form.save()
+            form1.save()
+            form2.save()
+            # username database e ase na 
+          # need fixing
+            
             # email = form.cleaned_data.get('email')
             # password = form.cleaned_data.get('password')
             # confrim_password = form.cleaned_data.get('confrim_password')
@@ -32,12 +44,16 @@ def register(request):
             # email = form.cleaned_data['email']
             # print(username)
             # print(email)
-            messages.success(request,f'Account created for {name}!')
+            messages.success(request,f"sumary_line Account created for {name}!")
             return redirect('Omart-home')
+          else:
+            messages.warning(request,f"The email is either invalid or already used to create an account")
     else:
-      form = user_registration_form()
+      form = user_register_form()
+      form1 = user_register_profile_form()
+      form2 = user_register_shipping_form()
 
-    return render(request,'users/register.html', {'form':form, 'title':title})
+    return render(request,'users/register.html', {'form':form, 'form1':form1, 'form2':form2, 'title':title})
 
 
 

@@ -10,7 +10,6 @@ from django import forms
 
 class user_register_form(forms.ModelForm):
     email = forms.EmailField(label='Enter your Email Address :', max_length=150, widget=forms.TextInput(attrs={'class': 'form-control-lg'}))
-    #'instrument_purchase':'',
     password=forms.PasswordInput()
     confrim_password = forms.PasswordInput()
     class Meta:
@@ -20,6 +19,7 @@ class user_register_form(forms.ModelForm):
 
 class user_register_profile_form(forms.ModelForm):
     name = forms.CharField(label='Enter your Fullname',min_length =5,max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    
     telephone=forms.IntegerField(required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
     class Meta:
         model=customer_profile
@@ -47,7 +47,7 @@ class user_register_shipping_form(forms.ModelForm):
 
         }
     
-    
+    #'instrument_purchase':'',
 
 
 
