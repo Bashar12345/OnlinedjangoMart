@@ -4,13 +4,13 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 #from matplotlib.pyplot import title
 from .models import User
-from .forms import UserAdminCreationForm,user_register_form,user_register_profile_form
+from .forms import user_register_form,user_register_profile_form
 
 def register(request):
     title='SignUp'
 
     if request.method == 'POST':
-      user_form = UserAdminCreationForm(request.POST or None)
+      user_form = user_register_form(request.POST or None)
       user_profile_form = user_register_profile_form(request.POST)
       
       
@@ -33,7 +33,7 @@ def register(request):
           else:
             messages.warning(request,f"The email is either invalid or already used to create an account")
     else:
-      user_form = UserAdminCreationForm()
+      user_form = user_register_form()
       user_profile_form = user_register_profile_form()
 
     return render(request,'users/register.html', {'form':user_form, 'form1':user_profile_form, 'title':title})

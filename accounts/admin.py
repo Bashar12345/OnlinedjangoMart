@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from .models import User as MyUser,shipping_address,customer_profile
-from .forms import user_register_form,UserAdminChangeForm,UserAdminCreationForm
+from .forms import user_register_form,UserAdminChangeForm
 
 # Register your models here.
 User= get_user_model()
@@ -14,8 +14,8 @@ admin.site.register(shipping_address)
 
 class UserAdmin(BaseUserAdmin):
     # The forms to add and change user instances
-    form = UserAdminChangeForm             #edit form
-    add_form = UserAdminCreationForm       # actual form
+    form = UserAdminChangeForm     #edit form upddate hash view hashing the password django documentation 
+    add_form = user_register_form       # actual form create view
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
