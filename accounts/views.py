@@ -50,7 +50,7 @@ def login(request):
             return redirect('Omart-home')
         else:
             messages.warning(
-                request, f"The email is either invalid or already used to create an account")
+                request, f"Wrong Email or password")
     else:
         form = user_login_form()
 

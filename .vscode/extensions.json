@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "adrianwilczynski.format-selection-as-html"
+        "adrianwilczynski.format-selection-as-html",
+        "alexcvzz.vscode-sqlite"
     ]
 }

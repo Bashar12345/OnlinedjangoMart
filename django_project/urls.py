@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Omart/', include('OMart.urls')),
     path('register/', user_views.register, name='Omart-register'),
+    path('login/', user_views.register, name='Omart-login'),
     
 ]
