@@ -55,11 +55,7 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser):
-    email = models.EmailField(
-        verbose_name='email address',
-        max_length=255,
-        unique=True,
-    )
+    email = models.EmailField(verbose_name='email address',max_length=255,unique=True,primary_key=True)
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False) # a admin user; non super-user
     admin = models.BooleanField(default=False) # a superuser
@@ -106,8 +102,7 @@ class shipping_address(models.Model):
     #confrim_password = models.CharField(max_length=100)
     #instrument_purchase = models.CharField(max_length=100)
     house_no = models.CharField(max_length=100)
-    present_address = models.TextField(max_length=500)
-    permanent_address = models.TextField(max_length=500)
+    location = models.TextField(primary_key=True,max_length=500)
     zip_code = models.IntegerField()
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
@@ -123,6 +118,6 @@ class customer_profile(models.Model):
     telephone = models.CharField(max_length=100)
     joined_date = models.DateTimeField(auto_now_add=True)     #default=timezone.now) 
     profile_pic = models.BinaryField() #models.FileField() #models.AutoField() #models.ImageField()
-    address = models.ForeignKey(shipping_address, on_delete=models.DO_NOTHING, default=False)
+    #address = models.ForeignKey(shipping_address, on_delete=models.DO_NOTHING, default=False)
 
 

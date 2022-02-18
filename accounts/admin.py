@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin 
 from django.contrib.auth import get_user_model
-from .models import User,shipping_address,customer_profile
+from django.contrib.auth.models import User
+from .models import User as MyUser,shipping_address,customer_profile
 from .forms import user_register_form,UserAdminChangeForm,UserAdminCreationForm
 
 # Register your models here.
@@ -47,9 +48,9 @@ class UserAdmin(BaseUserAdmin):
 
 
 
+#admin.site.unregister(User)
 
-
-admin.site.register(User)
+admin.site.register(MyUser)
 
 # class UserAdmin(admin.ModelAdmin):
 #     search_fields= ['email']
