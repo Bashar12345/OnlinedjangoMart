@@ -20,15 +20,15 @@ class user_register_form(forms.ModelForm):
         model = User
         fields = ['email']
     
-    def clean_email(self):
-        '''
-        Verify email is available.
-        '''
-        email = self.cleaned_data.get('email')
-        qs = User.objects.filter(email=email)
-        if qs.exists():
-            raise forms.ValidationError("email is taken")
-        return email
+    # def clean_email(self):
+    #     '''
+    #     Verify email is available.
+    #     '''
+    #     email = self.cleaned_data.get('email')
+    #     qs = User.objects.filter(email=email)
+    #     if qs.exists():
+    #         raise forms.ValidationError("email is taken")
+    #     return email
 
     def clean(self):
         '''
@@ -80,10 +80,17 @@ class UserAdminChangeForm(forms.ModelForm):
 class user_login_form(forms.Form):
     email = forms.EmailField(label='Email Address :', max_length=150, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
-    password = forms.PasswordInput()
+    password = forms.CharField(label='Password :', widget=forms.PasswordInput(attrs={"class": "form-control","id":"user-password"}))
 
-
-    
+    def clean_email(self):
+        '''
+        Verify email is available.
+        '''
+        email = self.cleaned_data.get('email')
+        qs = User.objects.filter(email=email)
+        if not qs.exists():
+            raise forms.ValidationError("This is an invalid user or email is not registered ")
+        return email
 
 
 
