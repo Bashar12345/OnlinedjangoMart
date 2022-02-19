@@ -77,11 +77,11 @@ class UserAdminChangeForm(forms.ModelForm):
 
 
 
-class user_login_form(forms.ModelForm):
+class user_login_form(forms.Form):
     email = forms.EmailField(label='Email Address :', max_length=150, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
     password = forms.PasswordInput()
-    
+
 
     
 
