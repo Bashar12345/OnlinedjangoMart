@@ -23,5 +23,6 @@ urlpatterns = [
     path('Omart/', include('OMart.urls')),
     path('register/', user_views.register, name='Omart-register'),
     path('login/', user_views.login_view, name='Omart-login'),
+    path('logout/', user_views.logout_view, name='Omart-logout'),
     
 ]

@@ -68,8 +68,10 @@ def login_view(request):
     return render(request, 'users/login.html', {'form': form, 'title': title})
 
 def logout_view(request):
-    logout(request)
-    return redirect('Omart-home')
+     logout(request)
+     return redirect('Omart-home')
+
+
 # email = form.cleaned_data.get('email')
     # password = form.cleaned_data.get('password')
     # confrim_password = form.cleaned_data.get('confrim_password')

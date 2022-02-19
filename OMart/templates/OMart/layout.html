@@ -20,8 +20,14 @@
     <div class="container">
         <span class="navbar-text">
             Assalamu ealaykum!!!!
-                <a href="{% url 'Omart-login' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">Log In<a> |
+
+            {% if user.is_authenticated %}
+            <a href="{% url 'Omart-logout' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">Log Out<a>
+            {%else%}
+            <a href="{% url 'Omart-login' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">Log In<a> |
                 <a href="{% url 'Omart-register' %}" style="text-decoration: none;color:rgba(101, 171, 232, 0.926)"> Register</a>
+            {%endif%}
+               
         </span>
     
     </div>
