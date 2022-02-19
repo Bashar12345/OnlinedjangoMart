@@ -5,7 +5,7 @@ from django.contrib import messages
 #from matplotlib.pyplot import title
 from .models import User
 from .forms import user_login_form, user_register_form, user_register_profile_form
-from django.contrib.auth import authenticate,login as auth_login,logout
+from django.contrib.auth import authenticate, login as auth_login, logout
 
 
 def register(request):
@@ -16,9 +16,9 @@ def register(request):
         user_profile_form = user_register_profile_form(request.POST)
 
         if user_form.is_valid() and user_profile_form.is_valid():
-            #print(user_form.cleaned_data)
+            # print(user_form.cleaned_data)
             email = user_profile_form.cleaned_data.get('email')
-            #print(email)
+            # print(email)
             if not User.objects.filter(email=email).exists():
                 name = user_profile_form.cleaned_data.get('name')
                 print(name)
@@ -47,19 +47,20 @@ def login_view(request):
         form = user_login_form(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get('email')
-            password =form.cleaned_data.get('password')
-            user= authenticate(request,email=email,password=password)
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, email=email, password=password)
             if user is not None:
-                auth_login(request,user)
+                auth_login(request, user)
                 messages.success(request, f'Account logged in for {email}!')
                 return redirect('Omart-home')
             else:
                 # attempt= request.session.get('attempt')
                 # request.session['attempt']=attempt+1
                 # return redirect('/invalid-password')
-                # request.session['invalid_user']==1 # 1 ==True  
-                messages.warning(request, f" Try Again!!!!!! you will another two chances...")
-                return redirect('Omart-login') 
+                # request.session['invalid_user']==1 # 1 ==True
+                messages.warning(
+                    request, f" Try Again!!!!!! you will another two chances...")
+                return redirect('Omart-login')
         else:
             messages.warning(request, f"Wrong Email or password")
     else:
@@ -67,9 +68,10 @@ def login_view(request):
 
     return render(request, 'users/login.html', {'form': form, 'title': title})
 
+
 def logout_view(request):
-     logout(request)
-     return redirect('Omart-home')
+    logout(request)
+    return redirect('Omart-home')
 
 
 # email = form.cleaned_data.get('email')
