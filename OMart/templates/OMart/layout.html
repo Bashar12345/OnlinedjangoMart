@@ -17,6 +17,8 @@
     <title>Omart</title>
 </head>
 
+
+
 <nav class="navbar-light bg-light container-sm">
     <span class="navbar-text">
         <small>
@@ -37,53 +39,38 @@
 </nav>
 
 <body>
-
+    
     <div class="container-md">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand">DreamCo</a>
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Shop by Catagory
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Electronics</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" href="#">Fashion</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Health & Beauty</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Home & Garden</a>
-                            </li>
-                            <li class="nav">
-                                <a class="dropdown-item" href="#">Sports</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Collection & Art</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="dropdown-item" href="#">Motor</a>
-                            </li>
-                        </ul>
-                    </li>
+
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <select name="Categories" class="form-select ">
+                        <option value="0">Shop By Categories</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Motor">Motor</option>
+                        <option value="Sports">Furniture</option>
+                    </select>
+                    <button class="btn btn-outline-success " type="submit">Search</button>
                 </form>
             </div>
         </nav>
 
-        <nav class="nav nav-tabs nav-fill" >
+        <nav class="nav nav-tabs nav-fill">
             <style>
-                
+                a:link {
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    text-decoration: none;
+                }
             </style>
             {% comment %} <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Active</a>
@@ -102,7 +89,7 @@
                 </ul>
             </li> {% endcomment %}
             <li class="nav-item">
-                <a  class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Electronics</a>
@@ -144,19 +131,18 @@
     {%endblock %}
 
 
-
-
-
-
 </body>
+
+
+
+
 
 <footer>
     
 </footer>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"

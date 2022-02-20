@@ -1,5 +1,4 @@
 {% extends 'OMart/layout.html' %}
-{% load crispy_forms_tags %}
 
 {% block body %}
 
@@ -17,14 +16,13 @@
             </legend>
             <!-- {#{form.as_p}#} this will make form like p tag does-->
             {#% crispy form %#}
-
-                {{ form |crispy }}
+                {{ form.as_p }}
             
             
 
         </fieldset>
         <fieldset class="mb-3">
-            {{ form1 |crispy }}
+            {{ form1.as_p }}
 
         </fieldset>
 

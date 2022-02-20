@@ -117,7 +117,9 @@ class customer_profile(models.Model):
     name = models.CharField(max_length=100)
     telephone = models.CharField(max_length=100)
     joined_date = models.DateTimeField(auto_now_add=True)     #default=timezone.now) 
-    profile_pic = models.BinaryField() #models.FileField() #models.AutoField() #models.ImageField()
+    profile_pic = models.ImageField(upload_to='profile_pics')
+    #profile_pic = models.BinaryField() #models.FileField() #models.AutoField() #models.ImageField()
     #address = models.ForeignKey(shipping_address, on_delete=models.DO_NOTHING, default=False)
-
+    def __str__(self):
+        return f'{self.user.name} Profile'
 

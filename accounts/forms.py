@@ -11,10 +11,10 @@ class user_register_form(forms.ModelForm):
     A form for creating new users. Includes all the required
     fields, plus a repeated password.
     """
-    email = forms.EmailField(label='Enter your Email Address :', max_length=150, widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='Enter your Email Address* :', max_length=150, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
-    password1 = forms.CharField(label='Enter Password :', widget=forms.PasswordInput(attrs={"class":" form-control"}))
-    password2 = forms.CharField(label='Confirm Password :', widget=forms.PasswordInput(attrs={"class":"form-control"}))
+    password1 = forms.CharField(label='Enter Password* :', widget=forms.PasswordInput(attrs={"class":" form-control"}))
+    password2 = forms.CharField(label='Confirm Password* :', widget=forms.PasswordInput(attrs={"class":"form-control"}))
 
     class Meta:
         model = User
@@ -95,9 +95,11 @@ class user_login_form(forms.Form):
 
 
 class user_register_profile_form(forms.ModelForm):
-    name = forms.CharField(label='Enter your Fullname',min_length =5,max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+   
+    name = forms.CharField(label='Enter your Fullname*',min_length =5,max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
+
     
-    telephone=forms.IntegerField(required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
+    telephone=forms.IntegerField(label='Cellphone/Mobile Number*',required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
     class Meta:
         model=customer_profile
         fields = ('name', 'telephone') #profile_pic,address
