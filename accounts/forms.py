@@ -13,8 +13,8 @@ class user_register_form(forms.ModelForm):
     """
     email = forms.EmailField(label='Enter your Email Address :', max_length=150, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
-    password1 = forms.CharField(label='Enter Password :', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm Password :', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Enter Password :', widget=forms.PasswordInput(attrs={"class":" form-control"}))
+    password2 = forms.CharField(label='Confirm Password :', widget=forms.PasswordInput(attrs={"class":"form-control"}))
 
     class Meta:
         model = User
