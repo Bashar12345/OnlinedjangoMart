@@ -125,3 +125,9 @@ class customer_profile(models.Model):
         return f'{self.name}"s profile'
         
 
+def product_info(models.Model):
+    product_name = models.CharField(max_length=100)
+    product_description = models.CharField(max_length=1200)
+    product_photo =models.ImageField(upload_to='/media')
+    minimum_bid_price = models.IntegerField()
+    auction_end_dateTime = models.DateTimeField() 
