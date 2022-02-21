@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "adrianwilczynski.format-selection-as-html",
-        "alexcvzz.vscode-sqlite"
+        "alexcvzz.vscode-sqlite",
+        "agutierrezr.emmet-keybindings",
+        "FallenMax.mithril-emmet"
     ]
 }

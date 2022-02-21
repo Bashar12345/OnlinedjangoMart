@@ -1,146 +1,187 @@
 {% extends 'OMart/layout.html' %}
-{%block body%}
-{{title}}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<div class="content" id="content_boby">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {%block body%}
 
+ 
+    {{title}}
 <legend class="h2">
+   
+
     On Going Auctions Today
 </legend>
 
-  <div class="card-group">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
+<div class="content" id="content_boby">
 
-
-{% comment %} <div class="container d-flex justify-content-center mt-50 mb-50">
-    <div class="row">
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
+        <div class="card">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This card has even longer content than the first to show that equal height action.</p>
             </div>
-        </div>
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mt-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-img-actions"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                </div>
-                <div class="card-body bg-light text-center">
-                    <div class="mb-2">
-                        <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2" data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#" class="text-muted" data-abc="true">Laptops & Notebooks</a>
-                    </div>
-                    <h3 class="mb-0 font-weight-semibold">$250.99</h3>
-                    <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
-                    <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-                </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
             </div>
         </div>
     </div>
-</div> {% endcomment %}
+
+    {% comment %} <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-img-actions"> <img
+                                src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png"
+                                class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                    </div>
+                    <div class="card-body bg-light text-center">
+                        <div class="mb-2">
+                            <h6 class="font-weight-semibold mb-2"> <a href="#" class="text-default mb-2"
+                                    data-abc="true">Toshiba Notebook with 500GB HDD & 8GB RAM</a> </h6> <a href="#"
+                                class="text-muted" data-abc="true">Laptops & Notebooks</a>
+                        </div>
+                        <h3 class="mb-0 font-weight-semibold">$250.99</h3>
+                        <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                class="fa fa-star star"></i> <i class="fa fa-star star"></i> </div>
+                        <div class="text-muted mb-3">34 reviews</div> <button type="button" class="btn bg-cart"><i
+                                class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
 
 </div>
 
-
-{% comment %} 
+{% comment %}
 <style>
     body {
         margin: 0;
@@ -152,15 +193,15 @@
         text-align: left;
         background-color: #2196F3
     }
-    
+
     .mt-50 {
         margin-top: 50px
     }
-    
+
     .mb-50 {
         margin-bottom: 50px
     }
-    
+
     .card {
         position: relative;
         display: -ms-flexbox;
@@ -174,91 +215,85 @@
         border: 1px solid rgba(0, 0, 0, .125);
         border-radius: .1875rem
     }
-    
+
     .card-img-actions {
         position: relative
     }
-    
+
     .card-body {
         -ms-flex: 1 1 auto;
         flex: 1 1 auto;
         padding: 1.25rem;
         text-align: center
     }
-    
+
     .card-img {
         width: 350px
     }
-    
+
     .star {
         color: red
     }
-    
+
     .bg-cart {
         background-color: orange;
         color: #fff
     }
-    
+
     .bg-cart:hover {
         color: #fff
     }
-    
+
     .bg-buy {
         background-color: green;
         color: #fff;
         padding-right: 29px
     }
-    
+
     .bg-buy:hover {
         color: #fff
     }
-    
+
     a {
         text-decoration: none !important
     }
 </style> {% endcomment %}
 {%endblock body%}
 
+{% comment %} <div class="content container-xl">
+    <!-- content -1 -->
 
-
-
-
-
-
-
-
-    {% comment %} <div class="content container-xl">
-        <!-- content -1 -->
-        <body>
-            <header class="h3"><a href="#">Explore Brands</a> </header>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="/home/b/Desktop/OnlinedjangoMart/OMart/static/watch.png" class="card-img-top" alt="Photo">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.</p>
-                        </div>
+    <body>
+        <header class="h3"><a href="#">Explore Brands</a> </header>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="/home/b/Desktop/OnlinedjangoMart/OMart/static/watch.png" class="card-img-top" alt="Photo">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.
+                            This content is a little bit longer.</p>
                     </div>
                 </div>
-               
             </div>
-            
-        </body>
-        
 
+        </div>
 
-    </div>
-    <div class="content container-md">
-        <!-- content -2 -->
-        <body>
-            <header></header>
-        </body>
-    </div>
-    <div class="content container-md">
-        <!-- content -3 -->
-       <body>
+    </body>
+
+</div>
+<div class="content container-md">
+    <!-- content -2 -->
+
+    <body>
         <header></header>
-       </body>
-    </div> {% endcomment %}
+    </body>
+</div>
+<div class="content container-md">
+    <!-- content -3 -->
+
+    <body>
+        <header></header>
+    </body>
+</div> {% endcomment %}
