@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin 
-from django.contrib.auth import get_user_model
-from django.contrib.auth.models import User
+#from django.contrib.auth import get_user_model
+#from django.contrib.auth.models import User
 from .models import User as MyUser,shipping_address,customer_profile
 from .forms import user_register_form,UserAdminChangeForm
 
 # Register your models here.
-User= get_user_model()
+
 
 admin.site.register(customer_profile)
 admin.site.register(shipping_address)
@@ -52,6 +52,7 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(MyUser)
 
+#User= get_user_model()
 # class UserAdmin(admin.ModelAdmin):
 #     search_fields= ['email']
 #     class Meta:

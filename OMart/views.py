@@ -5,12 +5,12 @@ from django.http import HttpResponse
 
 
 def home(request):
-    title = "Omart-Homepage"
+    title = "Homepage"
     return render(request, 'OMart/home.html', {'title': title})
 
 
 def about(request):
-    title = "Omart-about"
+    title = "About"
     return render(request, 'OMart/about.html', {'title': title})
 
 
