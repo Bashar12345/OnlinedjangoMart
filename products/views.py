@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 
-from products.forms import auctioned_product_form, productForm
+from .forms import auctioned_product_form, productForm
 
 # Create your views here.
 
@@ -10,7 +10,7 @@ def products_insert_view(request):
     title = 'Insert product Form'
     if request.method == 'POST':
         product_Form = productForm(request.POST)
-        product_Form2 = auctioned_product_form(request.POST or None)
+        product_Form2 = auctioned_product_form(request.POST )
         if product_Form.is_valid() and product_Form2.is_valid():
             product = product_Form.save()
             product_Form2.instance.product = product

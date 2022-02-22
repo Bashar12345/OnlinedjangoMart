@@ -5,7 +5,6 @@
 	{{title}}
 </div>
 
-
 <form action="" method='POST' class='py-5'>
 	{% csrf_token %}
 	<legend>
@@ -13,15 +12,13 @@
 	</legend>
 	<fieldset class="m-3">
 		{{form1.as_p}}
+	</fieldset>
+	<fieldset class="m-3">
 		{{form2.as_p}}
-
-
-
 	</fieldset>
 
-	<button class="btn btn-lg btn-outline-primary" type="submit">Add</button>
+	<button class="btn btn-lg btn-outline-primary" type="submit" value="submit">Add</button>
 </form>
-
 
 </script>
 {%endblock body%}
