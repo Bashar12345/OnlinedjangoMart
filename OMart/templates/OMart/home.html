@@ -1,6 +1,8 @@
 {% extends 'OMart/layout.html' %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
     {%block body%}
 
     <style>
@@ -17,48 +19,34 @@
     </style>    
     {{title}}
 
-<div class="container-lg">
+
     <div class="navbar">
         <div class="nav-brand h2"> On Going Auctions Today</div>
          <a type="submit" href="{% url 'product-insert' %}"  class="btn btn-outline-info"> <b>+</b> Sell  </a>
      </div>
      
-     <div class="body" id="content_boby">
-     
-         <div class="card-group">
-             <div id="card1" class="card" >
-                 <img class="card-img-top" src="..." alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                         content. This content is a little bit longer.</p>
-                 </div>
-                 <div class="card-footer">
-                     <small class="text-muted">Last updated 3 mins ago</small>
-                 </div>
-             </div>
-             <div id="card2" class="card">
-                 <img class="card-img-top" src="..." alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                 </div>
-                 <div class="card-footer">
-                     <small class="text-muted">Last updated 3 mins ago</small>
-                 </div>
-             </div>
-             <div id="card3" class="card">
-                 <img class="card-img-top" src="..." alt="Card image cap">
-                 <div class="card-body">
-                     <h5 class="card-title">Card title</h5>
-                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                         content. This card has even longer content than the first to show that equal height action.</p>
-                 </div>
-                 <div class="card-footer">
-                     <small class="text-muted">Last updated 3 mins ago</small>
-                 </div>
-             </div>
-         </div>
+     <div class="container p-3" id="content_boby">
+        {% for product in products %}
+     <div class="card mb-3" style="max-width: 540px;">
+       <div class="row g-0">
+           <div class="col-md-4">
+               <img class="img-fluid rounded-start" src="{{product.product_photo.url}}" alt="Card image cap">
+           </div>
+           <div class="col-md-8">
+               <div class="card-body">
+                   <h5 class="card-title">{{product.product_name}}</h5>
+                   <p class="card-text">{{product.product_description}}</p>
+               </div>
+               <p class="card-text"></p>
+           </div>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+
+   {% endfor %}
+
 
 </div>
 
@@ -194,7 +182,7 @@
         </div>
     </div> {% endcomment %}
 
-</div>
+
 
 
 

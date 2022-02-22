@@ -2,18 +2,19 @@
 
 {% block body %}
 
-<div class=" container-lg content-section">
+<div class=" content-section">
 
-    <div class="py-5 text-center">
+    <div class="text-center">
         <img class="d-block mx-auto mb-4" src="logo.jpg" alt="   {{title}} " width="72" height="72">
         <h2>Registration </h2>
     </div>
-    <form method="POST" class='p-2' enctype=multipart/form-data >
+    <legend class=" border-bottom mb-4">
+        Try to Sign Up now!
+    </legend>
+    <form method="POST" class='p-3' enctype=multipart/form-data >
         {%csrf_token%}
         <fieldset class="mb-3">
-            <legend class=" border-bottom mb-4">
-                Try to Sign Up now!
-            </legend>
+            
             <!-- {#{form.as_p}#} this will make form like p tag does-->
             {#% crispy form %#}
                 {{ form.as_p }}
@@ -29,7 +30,7 @@
         <!-- <label for="email">Your name: </label>
                     <input id="email" type="text" name="enail_id" required> -->
         <br />
-        <button class="btn btn-lg btn-outline-info" type="submit" value="submit"> Sign Up</button>
+        <button class="btn btn-lg btn-outline-info " type="submit" value="submit"> Sign Up</button>
     </form>
     <div class="border-top pt-3">
         <small class="text-muted">
