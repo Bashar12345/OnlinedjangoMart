@@ -17,7 +17,7 @@ class product_info(models.Model):
 class auctioned_product(models.Model):
     product = models.OneToOneField(product_info, on_delete=models.CASCADE)
     minimum_bid_price = models.DecimalField(default=00.00 , max_digits=8,decimal_places=2)
-    auction_end_dateTime = models.DateTimeField(default=timezone.now()) 
+    auction_end_dateTime = models.DateTimeField(default=timezone.now) 
 
     def __str__(self):
         #return f'{self.user.email} Profile'
