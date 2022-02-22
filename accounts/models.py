@@ -116,7 +116,7 @@ class customer_profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     telephone = models.CharField(max_length=100)
-    joined_date = models.DateTimeField(auto_now_add=True)#default=timezone.now()) 
+    joined_date = models.DateTimeField(auto_now_add=True) #default=timezone.now()) 
     profile_pic = models.ImageField(upload_to='accounts/profile_pics')
     #profile_pic = models.BinaryField() #models.FileField() #models.AutoField() #models.ImageField()
     #address = models.ForeignKey(shipping_address, on_delete=models.DO_NOTHING, default=False)

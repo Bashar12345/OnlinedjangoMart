@@ -109,9 +109,9 @@ class user_register_profile_form(forms.ModelForm):
 class user_register_shipping_form(forms.ModelForm):
     house_no = forms.CharField(label='Enter the current house No: ', widget=forms.TextInput(attrs={'class': 'form-control'}))
 
-    permanent_address = forms.CharField(label='Enter the Permanent Address:',widget=forms.Textarea(attrs={'class': 'form-control','rows':2}))
+    # permanent_address = forms.CharField(label='Enter the Permanent Address:',widget=forms.Textarea(attrs={'class': 'form-control','rows':2}))
 
-    present_address = forms.CharField(label='Enter the Present Address', widget=forms.Textarea(attrs={'class': 'form-control','rows':2}))
+    location = forms.CharField(label='Enter the location', widget=forms.Textarea(attrs={'class': 'form-control','rows':2,'placeholder':'google_map_link or street_no or buliding_no or reciver_person, passcode or others '}))
     
     zip_code = forms.IntegerField(max_value=5000,label='Enter the postal code of the area',widget=forms.NumberInput(attrs={'class':'form-control'}))
 
@@ -120,7 +120,7 @@ class user_register_shipping_form(forms.ModelForm):
         S_CHOICES = (('dhaka', 'Dhaka'), ('rajshahi', 'Rajshahi'), ('sylhet','Sylhet'),)
         C_CHOICES = (('none','Select A country'),('bangladesh ', 'Bangladesh'), ('us', 'US'),)
 
-        fields = ('house_no','present_address', 'permanent_address', 'zip_code', 'state', 'country',) 
+        fields = ('house_no','location','zip_code', 'state', 'country',) 
         widgets = {
             'state': forms.Select(attrs={'class': 'form-select'}, choices=S_CHOICES),
 

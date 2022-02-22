@@ -6,7 +6,7 @@ from django.utils import timezone
 class product_info(models.Model):
     product_id= models.CharField(primary_key=True,max_length=100)
     product_name = models.CharField(max_length=100,null=False)
-    product_description = models.CharField(max_length=1200)
+    product_description = models.TextField(max_length=1200)
     product_photo = models.ImageField(upload_to='product_img')
    
 
