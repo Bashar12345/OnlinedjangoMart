@@ -12,7 +12,7 @@ class product_info(models.Model):
 
     def __str__(self):
         #return f'{self.user.email} Profile'
-        return f'{self.product_name}  and {self.product_description}'
+        return f'{self.product_name} ({self.product_description})'
 
 class auctioned_product(models.Model):
     product = models.OneToOneField(product_info, on_delete=models.CASCADE)
