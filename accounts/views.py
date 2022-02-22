@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 #from matplotlib.pyplot import title
 from .models import User
+
 from .forms import user_login_form, user_register_form, user_register_profile_form
 from django.contrib.auth import authenticate, login as auth_login, logout
 

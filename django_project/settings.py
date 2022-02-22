@@ -107,9 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'Omart-home'
 LOGIN_URL= 'users/login'
 # LOGIN_REDIRECT ='/' 
-LOGIN_REDIRECT_URL = 'Omart-home'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

@@ -4,9 +4,9 @@ from django import forms
 class productForm(forms.ModelForm):
 	product_id = forms.CharField(label='Give a Product code*',max_length=100,widget=forms.TextInput(attrs={'class': 'form-control'}))
 
-	product_name = forms.CharField(label='Product name*',widget=forms.TextInput(attrs={'class': 'form-control','type':'text'}))
+	product_name = forms.CharField(label='Product name*',required=True,widget=forms.TextInput(attrs={'class': 'form-control','type':'text'}))
 
-	product_photo =forms.FileField(label='Product image',widget=forms.FileInput({'class':'form-control'})) 
+	product_photo =forms.ImageField(label='Product image',widget=forms.FileInput({'class':'form-control'})) 
 
 	product_description = forms.CharField(label='Product Description', widget=forms.Textarea(attrs={'class': 'form-control','rows':2}))
 

@@ -8,7 +8,7 @@
         <img class="d-block mx-auto mb-4" src="logo.jpg" alt="   {{title}} " width="72" height="72">
         <h2>Registration </h2>
     </div>
-    <form method="POST" class='p-2'>
+    <form method="POST" class='p-2' enctype=multipart/form-data >
         {%csrf_token%}
         <fieldset class="mb-3">
             <legend class=" border-bottom mb-4">
