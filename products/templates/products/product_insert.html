@@ -1,0 +1,26 @@
+{% extends 'OMart/layout.html' %}
+
+{%block body%}
+<div class="h2 mt-3" style="text-align: center">
+	{{title}}
+</div>
+
+
+<form action="" method='POST' class='py-5'>
+	<legend>
+		Add items for Auction
+	</legend>
+	<fieldset class="m-3">
+		{{form1.as_p}}
+		{{form2.as_p}}
+
+
+
+	</fieldset>
+
+	<button class="btn btn-lg btn-outline-primary" type="submit">Add</button>
+</form>
+
+
+</script>
+{%endblock body%}

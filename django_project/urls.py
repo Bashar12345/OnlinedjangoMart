@@ -20,14 +20,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from accounts import views as user_views
+from products import views as products_insert_view
 #from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Omart/', include('OMart.urls')),
+    path('products/', products_insert_view.products_insert_view, name='product-insert'),
     path('register/', user_views.register, name='Omart-register'),
     path('login/', user_views.login_view, name='Omart-login'),
     path('logout/', user_views.logout_view, name='Omart-logout'),
+
 
 ]
 

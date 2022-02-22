@@ -100,6 +100,8 @@ class user_register_profile_form(forms.ModelForm):
 
     
     telephone=forms.IntegerField(label='Cellphone/Mobile Number*',required=True,widget=forms.NumberInput(attrs={'placeholder':'+880','class':'form-control'}))
+
+    joined_date=forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class':'form-control'}))
     class Meta:
         model=customer_profile
         fields = ('name', 'telephone') #profile_pic,address
