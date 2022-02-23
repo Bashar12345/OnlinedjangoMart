@@ -18,30 +18,32 @@
         }
     </style>    
     {{title}}
-
+    {{current_time}}
 
     <div class="navbar">
         <div class="nav-brand h2"> On Going Auctions Today</div>
          <a type="submit" href="{% url 'product-insert' %}"  class="btn btn-outline-info"> <b>+</b> Sell  </a>
      </div>
-     
      <div class="container p-3" id="content_boby">
-        {% for product in products %}
+        {% for item in products %}
      <div class="card mb-3" style="max-width: 540px;">
        <div class="row g-0">
            <div class="col-md-4">
-               <img class="img-fluid rounded-start" src="{{product.product_photo.url}}" alt="Card image cap">
+               <img class="img-fluid rounded-start" src="{{item.product.product_photo.url}}" alt="Card image cap">
            </div>
            <div class="col-md-8">
                <div class="card-body">
-                   <h5 class="card-title">{{product.product_name}}</h5>
-                   <p class="card-text">{{product.product_description}}</p>
+                   <h5 class="card-title">{{item.product.product_name}}</h5>
+                   <p class="card-text">{{item.product.product_description}}</p>
+                   <p class="card-text">starting at: <big><b> {{item.minimum_bid_price}}</b> </big>tk</p>
+                   
                </div>
-               <p class="card-text"></p>
+              
            </div>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <small class="text-muted"> Deadline : {{item.auction_end_dateTime}} </small>
+           
         </div>
     </div>
 
@@ -51,7 +53,7 @@
 </div>
 
 
-    {% comment %} <div class="container d-flex justify-content-center mt-50 mb-50">
+    {%comment%} <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="row">
             <div class="col-md-4 mt-2">
                 <div class="card">

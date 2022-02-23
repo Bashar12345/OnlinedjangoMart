@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from products.models import product_info, auctioned_product
 
@@ -9,8 +10,11 @@ from products.models import product_info, auctioned_product
 @login_required
 def home(request):
     title = "Homepage"
-    products = product_info.objects.all()
-    return render(request, 'OMart/home.html', {'title': title, 'products': products})
+    #products = product_info.objects.all()
+    products = auctioned_product.objects.all()
+    current_time = timezone.now()
+    #dead_line =products.auction_end_dateTime - current_time
+    return render(request, 'OMart/home.html', {'title': title, 'products': products,"current_time":current_time})
 
 
 @login_required

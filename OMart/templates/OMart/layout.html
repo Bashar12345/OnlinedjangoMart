@@ -132,10 +132,12 @@
         {% endif %}
     </div>
 </div>
+{% autoescape on %}
+{%block body%}
 
-    {%block body%}
-
-    {%endblock %}
+{%endblock %}
+{% endautoescape %}
+   
 
 
 </body>
