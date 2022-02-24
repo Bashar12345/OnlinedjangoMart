@@ -25,8 +25,11 @@
          <a type="submit" href="{% url 'product-insert' %}"  class="btn btn-outline-info"> <b>+</b> Sell  </a>
      </div>
      <div class="container p-3" id="content_boby">
+           <!-- <button class="btn btn-group-horizental-lg btn-lg btn-block"
+                onclick=window.location.href="{% url 'Omart-about' %}" > -->
+
         {% for item in products %}
-     <div class="card mb-3" style="max-width: 540px;">
+    <a class="card text-dark mb-3" href="{% url 'Omart-view_product' item.product.product_id %}" style="max-width: 75%;">      
        <div class="row g-0">
            <div class="col-md-4">
                <img class="img-fluid rounded-start" src="{{item.product.product_photo.url}}" alt="Card image cap">
@@ -45,7 +48,7 @@
             <small class="text-muted"> Deadline : {{item.auction_end_dateTime}} </small>
            
         </div>
-    </div>
+    </a>
 
    {% endfor %}
 

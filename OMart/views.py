@@ -20,8 +20,13 @@ def home(request):
 @login_required
 def about(request):
     title = "About"
-
+    #query= request.GET.get(product_id)
+    #print(query)
+    #product_id= {'product_id' :product_id}
     return render(request, 'OMart/about.html', {'title': title})
+
+
+
 
 
 # def home(request):

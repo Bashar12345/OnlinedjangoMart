@@ -27,7 +27,12 @@ def products_insert_view(request):
     return render(request, 'products/product_insert.html', {'form1': product_Form, 'form2': product_Form2, 'title': title})
 
 
-
+def product_page(request, product_id):
+    title = "product_page"
+    #query= request.GET.get(product_id)
+    #print(query)
+    #product_id= {'product_id' :product_id}
+    return render(request, 'products/product_view.html', {'title': title,'product_id':product_id})
 
 
 
