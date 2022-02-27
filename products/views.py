@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 
 from .forms import auctioned_product_form, productForm
+from .models import *
 
 # Create your views here.
 
@@ -29,10 +30,16 @@ def products_insert_view(request):
 
 def product_page(request, product_id):
     title = "product_page"
+    #print((product_id))
+    #item = product_info.objects(product_id=product_id).first()
+    #item= product_info.objects.all()
+    item = product_info.objects.filter(product_id=product_id).first()
+    print(f' item : {item.product_name}')
+    #print(item.product_name)
     #query= request.GET.get(product_id)
     #print(query)
     #product_id= {'product_id' :product_id}
-    return render(request, 'products/product_view.html', {'title': title,'product_id':product_id})
+    return render(request, 'products/product_view.html', {'title': title,'item': item,'product_id':product_id})
 
 
 

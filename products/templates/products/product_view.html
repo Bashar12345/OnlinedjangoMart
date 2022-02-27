@@ -1,5 +1,84 @@
 {% extends 'OMart/layout.html' %}
 {%block body %}
+
 {{title}}
 {{product_id}}
+{{item.product_name}}
+<br>
+{{item.product_description}}
+
+
+<div class="content">
+
+<h1 class="display-6">Display 6</h1>
+
+</div>
+<p class="lead">
+	This is a lead paragraph. It stands out from regular paragraphs.
+  </p>
+  <blockquote class="blockquote">
+	<p>A well-known quote, contained in a blockquote element.</p>
+  </blockquote>
+
+  <figure class="text-center">
+	<blockquote class="blockquote">
+	  <p>A well-known quote, contained in a blockquote element.</p>
+	</blockquote>
+	<figcaption class="blockquote-footer">
+	  Someone famous in <cite title="Source Title">Source Title</cite>
+	</figcaption>
+  </figure>
+
+
+  <ul class="list-unstyled">
+	<li>This is a list.</li>
+	<li>It appears completely unstyled.</li>
+	<li>Structurally, it's still a list.</li>
+	<li>However, this style only applies to immediate child elements.</li>
+	<li>Nested lists:
+	  <ul>
+		<li>are unaffected by this style</li>
+		<li>will still show a bullet</li>
+		<li>and have appropriate left margin</li>
+	  </ul>
+	</li>
+	<li>This may still come in handy in some situations.</li>
+  </ul>
+
+<img src="{{item.product_photo.url}}" style='max-width:30%;' class=" img-thumbnail" alt="Nothing">
+
+  
+
+  <!-- On tables -->
+<table class="table-primary">...</table>
+<table class="table-secondary">...</table>
+<table class="table-success">...</table>
+<table class="table-danger">...</table>
+<table class="table-warning">...</table>
+<table class="table-info">...</table>
+<table class="table-light">...</table>
+<table class="table-dark">...</table>
+
+<!-- On rows -->
+<tr class="table-primary">...</tr>
+<tr class="table-secondary">...</tr>
+<tr class="table-success">...</tr>
+<tr class="table-danger">...</tr>
+<tr class="table-warning">...</tr>
+<tr class="table-info">...</tr>
+<tr class="table-light">...</tr>
+<tr class="table-dark">...</tr>
+
+<!-- On cells (`td` or `th`) -->
+<tr>
+  <td class="table-primary">...</td>
+  <td class="table-secondary">...</td>
+  <td class="table-success">...</td>
+  <td class="table-danger">...</td>
+  <td class="table-warning">...</td>
+  <td class="table-info">...</td>
+  <td class="table-light">...</td>
+  <td class="table-dark">...</td>
+</tr>
+
 {% endblock %}
