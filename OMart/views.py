@@ -11,7 +11,7 @@ from products.models import product_info, auctioned_product
 def home(request):
     title = "Homepage"
     #products = product_info.objects.all()
-    products = auctioned_product.objects.all()
+    products = auctioned_product.objects.order_by('auction_end_dateTime')
     current_time = timezone.now()
     #dead_line =products.auction_end_dateTime - current_time
     return render(request, 'OMart/home.html', {'title': title, 'products': products,"current_time":current_time})
