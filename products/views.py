@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+from django.views.generic import View,TemplateView
+from django.http import JsonResponse
 from django.contrib import messages
 
 from .forms import auctioned_product_form, productForm
@@ -41,7 +43,12 @@ def product_page(request, product_id):
     #product_id= {'product_id' :product_id}
     return render(request, 'products/product_view.html', {'title': title,'item': item,'product_id':product_id})
 
-
+class postJsonView(View):
+    def get(self,*args,**kwargs):
+        #last_bid = list(user_bidding.objects.values())
+        last_bid = user_bidding.objects.values_list()
+        return JsonResponse({'data':last_bid}) #,safe=False})
+        
 
 #messages.info
 #messages.debug
