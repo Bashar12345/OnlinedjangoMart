@@ -5,12 +5,17 @@ from django.utils import timezone
 # Create your models here.
 
 class product_info(models.Model):
-    product_id= models.CharField(primary_key=True,max_length=100)
+    product_id= models.CharField(primary_key=True,max_length=200)
     product_name = models.CharField(max_length=100,null=False)
-    product_description = models.TextField(max_length=1200)
+    product_description = models.TextField(max_length=2000)
     product_photo = models.ImageField(upload_to='product_img')
     # ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)
    
+    @classmethod
+    def create(cls, product_id,product_name,product_description,product_photo):
+        product_info = cls(product_id=product_id,product_name=product_name,product_description=product_description)
+        # do something with the book
+        return product_info
 
     def __str__(self):
         #return f'{self.user.email} Profile'
@@ -18,8 +23,11 @@ class product_info(models.Model):
 
 class auctioned_product(models.Model):
     product = models.OneToOneField(product_info, on_delete=models.CASCADE)
-    minimum_bid_price = models.DecimalField(default=00.00 , max_digits=8,decimal_places=2)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+    minimum_bid_price = models.DecimalField(default=00.00 , max_digits=8,decimal_places=2,auto_created=True)
     auction_end_dateTime = models.DateTimeField(default=timezone.now) 
+
+    
 
     def __str__(self):
         #return f'{self.user.email} Profile'
@@ -27,10 +35,16 @@ class auctioned_product(models.Model):
 
 class user_bidding(models.Model):
     bid_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE) #current user ashe nahh
+    product = models.ForeignKey(auctioned_product, on_delete=models.CASCADE)
     final_bid= models.IntegerField()
-    user = models.ManyToManyField(User)
-    product = models.OneToOneField(product_info, on_delete=models.CASCADE)
+    
+    # @classmethod
+    # def create(cls, bid_id,product,final_bid):
+    #     user_bidding = cls(bid_id=bid_id,product=product,final_bid=final_bids)
+    #     # do something with the book
+    #     return user_bidding
 
     def __str__(self):
         #return f'{self.user.email} Profile'
-        return f'{self.user.email} bidded on {self.product_name}- last_bid: {self.final_bid}'
+        return f'{self.user.email} bidded on {self.product.product_name}- last_bid: {self.final_bid}'

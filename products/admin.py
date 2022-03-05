@@ -4,3 +4,4 @@ from .models import *
 # Register your models here.
 admin.site.register(product_info)
 admin.site.register(auctioned_product)
+admin.site.register(user_bidding)

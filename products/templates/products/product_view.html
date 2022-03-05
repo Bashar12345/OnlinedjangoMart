@@ -3,7 +3,7 @@
 
 {{title}}
 {{product_id}}
-{{item.product_name}}
+
 <br>
 
 
@@ -15,12 +15,14 @@
 			{% comment %} style='max-width:30%;' {% endcomment %}
 		</div>
 		<div class="col-md-8">
-			<h1 class="display-6">Display 6</h1>
+			<h1 class="display-6">{{item.product_name}}</h1>
 			<p class="lead">
-				{{item.product_description}}
+				{{item.product_description | safe  }}
 			</p>
+			
 			<aside class=''>
 				<ul class="list-unstyled">
+					
 					<li>This is a list.</li>
 					<li>It appears completely unstyled.</li>
 					<li>Structurally, it's still a list.</li>
@@ -38,6 +40,14 @@
 
 			<button type="button" class="btn btn-primary btn-sm">Small button</button>
 <button type="button" class="btn btn-secondary btn-sm">Small button</button>
+
+
+<form action='' method='POST'>
+	{% csrf_token %}
+	{{form.as_p}}
+	<button class="btn btn-success btn-outline-succes ">Confirm</button>
+</form>
+
 
 		</div>
 	</div>
@@ -118,5 +128,11 @@
   <td class="table-light">...</td>
   <td class="table-dark">...</td>
 </tr>
+
+
+{% comment %} <script>
+	$('meta[name=author]').attr('content', 'New Author Name');
+</script> {% endcomment %}
+
 
 {% endblock %}

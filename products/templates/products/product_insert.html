@@ -5,7 +5,7 @@
 	{{title}}
 </div>
 
-<form action="" method='POST' class='p-5' enctype=multipart/form-data >
+<form id='insertForm' action="" method='POST' class='p-5' enctype=multipart/form-data>
 	{% csrf_token %}
 	<legend>
 		Add items for Auction
@@ -14,8 +14,8 @@
 		{{form1.as_p}}
 		{{form2.as_p}}
 	</fieldset>
-
-	<button class="btn btn-lg btn-outline-primary" type="submit" value="submit">Add</button>
+	<button class="btn btn-lg btn-outline-primary" type="submit">Add</button>
 </form>
+
 
 {%endblock body%}

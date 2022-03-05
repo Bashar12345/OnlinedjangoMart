@@ -29,7 +29,7 @@
                 onclick=window.location.href="{% url 'Omart-about' %}" > -->
 
         {% for item in products %}
-    <a class="card text-dark mb-3" href="{% url 'Omart-view_product' item.product.product_id %}" style="max-width: 75%;">      
+    <a class="card text-dark mb-3" href="{% url 'Omart-view_product_detail' item.product.product_id %}" style="max-width: 75%;">      
        <div class="row g-0">
            <div class="col-md-4">
                <img class="img-fluid rounded-start" src="{{item.product.product_photo.url}}" alt="Card image cap">

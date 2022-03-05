@@ -22,3 +22,12 @@ class auctioned_product_form(forms.ModelForm):
 	class Meta :
 		model= auctioned_product
 		fields=  ('minimum_bid_price','auction_end_dateTime')
+
+class bid_form(forms.ModelForm):
+	
+	class Meta:
+		model= user_bidding
+		fields={'final_bid'}
+		widgets={
+			'final_bid':forms.NumberInput(attrs={'class':'form-control'})
+		}
