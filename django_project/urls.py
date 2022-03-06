@@ -26,9 +26,9 @@ from products.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Omart/', include('OMart.urls')),
+    path('', include('OMart.urls')),
 
-    path('products/', products_insert_view, name='product-insert'),
+    path('add_products/', products_insert_view, name='product-insert'),
     path('products/<product_id>', product_page, name='Omart-view_product_detail'),
     path('products/<product_id>',postJsonData.as_view(), name='post-jason-bid-view'),
 

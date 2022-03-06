@@ -52,7 +52,7 @@ def login_view(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 auth_login(request, user)
-                messages.success(request, f' {email} you have logged in!')
+                messages.success(request, f' {email} you have logged in! successfuly')
                 return redirect('Omart-home')
             else:
                 # attempt= request.session.get('attempt')

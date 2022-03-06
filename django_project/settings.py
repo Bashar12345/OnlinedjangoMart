@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = 'Omart-home'
-LOGIN_URL= 'users/login'
+#LOGIN_URL= 'accounts/login'
 # LOGIN_REDIRECT ='/' 
 
 

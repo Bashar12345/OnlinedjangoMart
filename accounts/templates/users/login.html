@@ -8,6 +8,7 @@
         <h1>Omart</h1><h2>Login Page</h2>
         <p>Login or register from here to access.</p>
     </div>
+   
 </div>
 <div class="main">
     <div class="col-md-6 col-sm-12">
@@ -17,7 +18,17 @@
                 {{form.as_p}}
                 <button type="submit" value="submit" class="btn btn-black">Log In</button>
                 <a type="button" href="{% url 'Omart-register' %}" class="btn btn-secondary">Sign up</a>
+
             </form>
+        </div>
+        <div id="message" class="small">
+            {% if messages %}
+            {%for message  in messages %}
+            <div class="alert alert-{{message.tags}}">
+                {{message}}
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

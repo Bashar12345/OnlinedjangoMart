@@ -4,6 +4,7 @@ from django.utils import timezone
 
 # Create your models here.
 
+
 class product_info(models.Model):
     product_id= models.CharField(primary_key=True,max_length=200)
     product_name = models.CharField(max_length=100,null=False)
@@ -21,6 +22,9 @@ class product_info(models.Model):
         #return f'{self.user.email} Profile'
         return f'{self.product_name} '#({self.product_description})'
 
+
+
+
 class auctioned_product(models.Model):
     product = models.OneToOneField(product_info, on_delete=models.CASCADE)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
@@ -31,7 +35,7 @@ class auctioned_product(models.Model):
 
     def __str__(self):
         #return f'{self.user.email} Profile'
-        return f'{self.product.product_name} and {self.auction_end_dateTime} and {self.minimum_bid_price}tk'
+        return f'{self.product.product_id} price: {self.minimum_bid_price}tk    time_left: {self.auction_end_dateTime}'
 
 class user_bidding(models.Model):
     bid_id = models.AutoField(primary_key=True)
@@ -47,4 +51,14 @@ class user_bidding(models.Model):
 
     def __str__(self):
         #return f'{self.user.email} Profile'
-        return f'{self.user.email} bidded on {self.product.product_name}- last_bid: {self.final_bid}'
+        return f'{self.user.email} bidded on {self.product.product.product_id}- last_bided: {self.final_bid}'
+
+
+
+
+
+# class BookAdmin(admin.ModelAdmin):
+#     list_display= ('title', 'author', 'description', 'publicationyear')
+
+
+# #admin.site.register(Book, BookAdmin)
