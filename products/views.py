@@ -42,14 +42,16 @@ def product_page(request, product_id):
     # print((product_id))
     #item = product_info.objects(product_id=product_id).first()
     #item= product_info.objects.all()
-    item = product_info.objects.filter(product_id=product_id).first()
+    #item = product_info.objects.filter(product_id=product_id).first()
+    product_address = auctioned_product.objects.get(product_id=product_id)
+    bidded_products = user_bidding.objects.all()
     #print(f' item : {item.product_name}')
     if request.method == 'POST':
         form = bid_form(request.POST or None)
         if form.is_valid():
             bided_form =form.save(commit=False)
             current_user =request.user
-            product_address = auctioned_product.objects.get(product_id=product_id)
+            
             user_address = User.objects.filter(email=current_user).first()  
             #print(product_address.product.product_id)
         
@@ -74,7 +76,7 @@ def product_page(request, product_id):
     else:
         form = bid_form()
 
-    return render(request, 'products/product_view.html', {'form': form, 'title': title, 'item': item})
+    return render(request, 'products/product_view.html', {'form': form, 'title': title,'bidded_products':bidded_products,'product_address':product_address})
 
 
 def bidding(request):
