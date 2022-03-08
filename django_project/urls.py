@@ -31,6 +31,7 @@ urlpatterns = [
     path('add_products/', products_insert_view, name='product-insert'),
     path('products/<product_id>', product_page, name='Omart-view_product_detail'),
     path('products/<product_id>',postJsonData.as_view(), name='post-jason-bid-view'),
+    path('my-items/',my_posted_items, name='my_items'),
 
     path('register/', user_views.register, name='Omart-register'),
     path('login/', user_views.login_view, name='Omart-login'),

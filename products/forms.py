@@ -29,5 +29,5 @@ class bid_form(forms.ModelForm):
 		model= user_bidding
 		fields={'final_bid'}
 		widgets={
-			'final_bid':forms.NumberInput(attrs={'class':'form-control'})
+			'final_bid':forms.NumberInput(attrs={'class':'form-control-sm'})
 		}

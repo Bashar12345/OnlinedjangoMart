@@ -19,25 +19,27 @@
 
 
 
-<nav class="navbar-light bg-light container-sm" nav='nav1'>
-    <span class="navbar-text">
-    {% if user.is_authenticated %}
-    <small>
-        {{user}} |
-    </small>
-    <a href="{% url 'Omart-logout' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">
-    Log Out<a>
-        {%else%}
+<nav class="navbar-light sticky-top bg-light container-sm" nav='nav1'>
+    <span class="navbar-text ">
+        {% if user.is_authenticated %}
         <small>
-            Assalamu ealaykum   !!!!
+            {{user}} |
         </small>
-        <a href="{% url 'Omart-login' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">
-            SignIn<a> |
-                <a href="{% url 'Omart-register' %}" style="text-decoration: none;color:rgba(101, 171, 232, 0.926)">
-                    Register</a>
-                    {%endif%}
+        <a href="{% url 'Omart-logout' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">Log Out<a>
+        {%else%}
+                <small>
+                    Assalamu ealaykum !!!!
+                </small>
+                <a href="{% url 'Omart-login' %}" style="text-decoration: none; color:rgba(101, 171, 232, 0.926)">SignIn<a> |
+                <a href="{% url 'Omart-register' %}" style="text-decoration: none;color:rgba(101, 171, 232, 0.926)">Register</a>
+        {%endif%}
+        <small>
+           | <a href="{% url 'my_items' %}">My posted Items</a> 
 
-</span>
+        </small>
+    </span>
+       
+
 
 </nav>
 

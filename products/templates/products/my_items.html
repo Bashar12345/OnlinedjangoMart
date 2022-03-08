@@ -1,0 +1,28 @@
+{% extends 'OMart/layout.html' %}
+{% block body %}
+{{title}}
+
+{%for item in product_address %}
+<a class="card text-dark mb-3" href="{% url 'Omart-view_product_detail' item.product.product_id %}" style="max-width: 75%;">      
+	<div class="row g-0">
+		<div class="col-md-4">
+			<img class="img-fluid rounded-start" src="{{item.product.product_photo.url}}" alt="Card image cap">
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">{{item.product.product_name}}</h5>
+				<p class="card-text">{{item.product.product_description}}</p>
+				<p class="card-text">starting at: <big><b> {{item.minimum_bid_price}}</b> </big>tk</p>
+				
+			</div>
+		   
+		</div>
+	 </div>
+	 <div class="card-footer">
+		 <small class="text-muted"> Deadline : {{item.auction_end_dateTime}} </small>
+		
+	 </div>
+ </a>
+
+{%endfor%}
+{% endblock body %}

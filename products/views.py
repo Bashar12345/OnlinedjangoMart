@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import auctioned_product_form, productForm, bid_form
 from .models import *
+from django.db.models import F,Max
 
 # Create your views here.
 
@@ -38,13 +39,20 @@ def products_insert_view(request):
 @login_required
 def product_page(request, product_id):
     title = "product_page"
-    gotten=product_id
+    current_time = timezone.now()
     # print((product_id))
     #item = product_info.objects(product_id=product_id).first()
     #item= product_info.objects.all()
     #item = product_info.objects.filter(product_id=product_id).first()
     product_address = auctioned_product.objects.get(product_id=product_id)
-    bidded_products = user_bidding.objects.all()
+    bidded_products = user_bidding.objects.order_by('-final_bid')
+   
+    if current_time>product_address.auction_end_dateTime:
+       highest_bid = user_bidding.objects.aggregate(Max('final_bid'))['final_bid__max']  # Returns highest
+       #print(f' name {highest_bid}')
+       max_bider_user = user_bidding.objects.filter(final_bid=highest_bid).first()
+       #print(max_bider_user.user.email)
+       return render(request, 'products/product_view.html', { 'title': title,"max_bider_user":max_bider_user,'product_address':product_address})
     #print(f' item : {item.product_name}')
     if request.method == 'POST':
         form = bid_form(request.POST or None)
@@ -79,8 +87,22 @@ def product_page(request, product_id):
     return render(request, 'products/product_view.html', {'form': form, 'title': title,'bidded_products':bidded_products,'product_address':product_address})
 
 
+def my_posted_items(request):
+    title="My posted Items"
+    current_user =request.user
+    user_address = User.objects.filter(email=current_user).first()  
+    
+    product_address = auctioned_product.objects.filter(user=user_address)
+
+    return render(request, 'products/my_items.html',{'title':title,"product_address":product_address})
+
+
+
+
 def bidding(request):
     return render(request, 'Omart-view_product_detail')
+
+
 
 
 class postJsonData(View):
