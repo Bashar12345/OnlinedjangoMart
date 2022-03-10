@@ -111,6 +111,13 @@ LOGIN_REDIRECT_URL = 'Omart-home'
 #LOGIN_URL= 'accounts/login'
 # LOGIN_REDIRECT ='/' 
 
+EMAIL_BACKEND = 'django.core.mail.backnds.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT= 587
+EMAIL_USE_TLS= True
+EMAIL_HOST_USER ='abul35-2002@diu.edu.bd'
+EMAIL_HOST_PASSWORD ='fuckthegovernment8096#@bashar'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
