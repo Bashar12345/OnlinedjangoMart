@@ -38,7 +38,7 @@ def register(request):
         user_form = user_register_form()
         user_profile_form = user_register_profile_form()
 
-    return render(request, 'users/register.html', {'form': user_form, 'form1': user_profile_form, 'title': title})
+    return render(request, 'accounts/register.html', {'form': user_form, 'form1': user_profile_form, 'title': title})
 
 
 def login_view(request):
@@ -67,7 +67,7 @@ def login_view(request):
     else:
         form = user_login_form()
 
-    return render(request, 'users/login.html', {'form': form, 'title': title})
+    return render(request, 'accounts/login.html', {'form': form, 'title': title})
 
 
 def logout_view(request):

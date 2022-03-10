@@ -1,13 +1,17 @@
-{% extends 'OMart/layout.html' %}
+{% extends 'accounts/user_entry_layout.html'%}
 
-{% block body %}
+
+{% block sidenav %}
+<img class="d-block mx-auto mb-4" src="logo.jpg" alt="   {{title}} " width="72" height="72">
+		<h1>Omart</h1>
+		<h2>Registration Page</h2>
+		<p> Register from here to access.</p>
+{% endblock sidenav %}
+
+{% block accounts_content_form%}
 
 <div class=" content-section">
 
-    <div class="text-center">
-        <img class="d-block mx-auto mb-4" src="logo.jpg" alt="   {{title}} " width="72" height="72">
-        <h2>Registration </h2>
-    </div>
     <legend class=" border-bottom mb-4">
         Try to Sign Up now!
     </legend>
@@ -44,4 +48,5 @@
 
 
 </div>
-{% endblock body %}
+
+{%endblock accounts_content_form %}
