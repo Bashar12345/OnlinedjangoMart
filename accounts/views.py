@@ -75,6 +75,13 @@ def logout_view(request):
     return redirect('Omart-home')
 
 
+
+
+class password_reset():
+    pass
+
+
+
 # email = form.cleaned_data.get('email')
     # password = form.cleaned_data.get('password')
     # confrim_password = form.cleaned_data.get('confrim_password')

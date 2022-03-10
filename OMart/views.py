@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 #from django.views import View
 #from django.contrib.auth.decorators import login_required
 from products.models import product_info, auctioned_product

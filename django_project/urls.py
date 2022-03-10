@@ -16,6 +16,7 @@ Including another URLconf
 
 from django.conf import settings
 from django.conf.urls.static import static
+from dajango.contrib.auth import views as auth_views
 
 from django.contrib import admin
 from django.urls import path, include
@@ -36,6 +37,9 @@ urlpatterns = [
     path('register/', user_views.register, name='Omart-register'),
     path('login/', user_views.login_view, name='Omart-login'),
     path('logout/', user_views.logout_view, name='Omart-logout'),
+
+    path('password-reset/',auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'), name='password-reset'),
+    path('password-reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'), name='password-reset-done'),
 
 
 ]

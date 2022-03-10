@@ -87,6 +87,19 @@ def product_page(request, product_id):
     return render(request, 'products/product_view.html', {'form': form, 'title': title,'bidded_products':bidded_products,'product_address':product_address})
 
 
+
+
+# class product_detail_view(DetailView):
+#     model = product_info
+#     template_name = 'products/product_view.html'
+#     context_object_name="product_address"
+
+
+
+
+
+
+
 def my_posted_items(request):
     title="My posted Items"
     current_user =request.user
