@@ -36,13 +36,15 @@ INSTALLED_APPS = [
     'accounts.apps.UsersConfig',
     'products.apps.ProductsConfig',
     'crispy_forms',
+    'rest_framework',
+    'omart_api.apps.OmartApiConfig',
+    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'omart_api.apps.OmartApiConfig',
+    
 ]
 
 #AUTH_USER_MODEL = 'users.User'
