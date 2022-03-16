@@ -28,6 +28,7 @@ from products.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('OMart.urls')),
+    path('',include('omart_api.urls')),
 
     path('add_products/', products_insert_view, name='product-insert'),
     path('products/<product_id>', product_page, name='Omart-view_product_detail'),
@@ -48,7 +49,7 @@ urlpatterns = [
 
 
 
-path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='accounts/reset_password_sent.html'), name='password_reset_done'),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='accounts/reset_password_sent.html'), name='password_reset_done'),
 
     path('password_reset/',auth_views.PasswordResetView.as_view(
             template_name='accounts/password_reset.html',
