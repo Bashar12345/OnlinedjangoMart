@@ -41,10 +41,10 @@
 				</ul>
 			</aside>
 
-			{% if max_bider_user %}
+	{% if max_bider_user == 0 %}
 			<figure class="text-center">
 				<blockquote class="blockquote">
-					<p><b> Winner the product : </b> {{max_bider_user.user.email}}</p>
+					<p><b> Winner of the product : </b> {{max_bider_user.user.email}}</p>
 				</blockquote>
 				<figcaption class="blockquote-footer">
 					<p> Winner bided for {{max_bider_user.final_bid}} </p>
@@ -52,13 +52,23 @@
 				</figcaption>
 			</figure>
 
-			{%else%}
+		{%else%}
 			<div class="time">
 				<p class='lead'>Auction Ends: <b>{{product_address.auction_end_dateTime}}</b></p>
 
 			</div>
-
-			{% endif %}
+			<blockquote class="blockquote">
+				<p>
+					<form action='' method='POST'>
+						<legend>Place your bid </legend>
+						{% csrf_token %}
+						{{form.as_p}}
+						<button class="btn btn-success btn-outline-succes ">Confirm</button>
+					</form>
+					
+				</p>
+			  </blockquote>
+	{% endif %}
 			{% comment %} <button type="button" class="btn btn-primary btn-sm">Small button</button>
 			<button type="button" class="btn btn-secondary btn-sm">Small button</button> {% endcomment %}
 
@@ -68,23 +78,8 @@
 </section>
 
 
-
-
-
-
-  <blockquote class="blockquote">
-	<p>
-		<form action='' method='POST'>
-			<legend>Place your bid </legend>
-			{% csrf_token %}
-			{{form.as_p}}
-			<button class="btn btn-response btn-success btn-outline-succes ">Confirm</button>
-		</form>
-		
-	</p>
-  </blockquote>
-
   
+
 
 
   <table class="table table-striped table-responsive table caption-top">

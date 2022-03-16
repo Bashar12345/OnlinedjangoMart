@@ -31,7 +31,7 @@ urlpatterns = [
     path('',include('omart_api.urls')),
 
     path('add_products/', products_insert_view, name='product-insert'),
-    path('products/<product_id>', product_page, name='Omart-view_product_detail'),
+    path('products/<product_id>', product_detail_page, name='Omart-view_product_detail'),
     path('products/<product_id>',postJsonData.as_view(), name='post-jason-bid-view'),
     path('my-items/',my_posted_items, name='my_items'),
 

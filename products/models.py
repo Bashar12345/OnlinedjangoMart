@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import User
-from django.utils import timezone
+from datetime import datetime,timedelta
 
 # Create your models here.
 
@@ -29,7 +29,7 @@ class auctioned_product(models.Model):
     product = models.OneToOneField(product_info, on_delete=models.CASCADE)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
     minimum_bid_price = models.DecimalField(default=00.00 , max_digits=8,decimal_places=2,auto_created=True)
-    auction_end_dateTime = models.DateTimeField(default=timezone.now) 
+    auction_end_dateTime = models.DateTimeField(default=lambda: datetime.now()+timedelta(days=7)) 
 
     
 

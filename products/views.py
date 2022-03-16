@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.shortcuts import render, redirect
 from django.views.generic import View, TemplateView
 from django.http import JsonResponse
@@ -36,8 +37,10 @@ def products_insert_view(request):
     return render(request, 'products/product_insert.html', {'form1': product_Form, 'form2': product_Form2, 'title': title})
 
 #'Omart-view_product_detail'
+
+
 @login_required
-def product_page(request, product_id):
+def product_detail_page(request, product_id):
     title = "product_page"
     current_time = timezone.now()
     # print((product_id))
@@ -45,49 +48,60 @@ def product_page(request, product_id):
     #item= product_info.objects.all()
     #item = product_info.objects.filter(product_id=product_id).first()
     product_address = auctioned_product.objects.get(product_id=product_id)
-    bidded_products = user_bidding.objects.order_by('-final_bid')
-   
-    if current_time>product_address.auction_end_dateTime:
+    #product_address = auctioned_product.objects.filter(product_id=product_id).first()
+    bidded_products = user_bidding.objects.filter(product=product_address).order_by('-final_bid')
+    end_date =str(product_address.auction_end_dateTime) 
+    end_date, ext = end_date.split('+')
+    #print(end_date)
+
+    if current_time > product_address.auction_end_dateTime:
        highest_bid = user_bidding.objects.aggregate(Max('final_bid'))['final_bid__max']  # Returns highest
-       #print(f' name {highest_bid}')
-       max_bider_user = user_bidding.objects.filter(final_bid=highest_bid).first()
-       #print(max_bider_user.user.email)
-       return render(request, 'products/product_view.html', { 'title': title,"max_bider_user":max_bider_user,'product_address':product_address})
+       print(f' name {highest_bid}')
+       max_bider_user = user_bidding.objects.filter(final_bid=highest_bid, product=product_address).first()
+       
+       print(type(max_bider_user))#print(max_bider_user.user.email)
+       if max_bider_user==None:
+           max_bider_user=0
+       print(type(max_bider_user))
+       return render(request, 'products/product_view.html', {'title': title, "max_bider_user": max_bider_user, 'product_address': product_address})
     #print(f' item : {item.product_name}')
+    
+    
+    
     if request.method == 'POST':
         form = bid_form(request.POST or None)
         if form.is_valid():
-            bided_form =form.save(commit=False)
-            current_user =request.user
-            
-            user_address = User.objects.filter(email=current_user).first()  
+            bided_form = form.save(commit=False)
+            current_user = request.user
+
+            user_address = User.objects.filter(email=current_user).first()
             #print(product_address.product.product_id)
-        
+
             bid = form.cleaned_data.get('final_bid')
             print(bid)
+
+            checkin_bid = user_bidding.objects.filter(
+                product=product_address, user=user_address).update(final_bid=bid)
+            if checkin_bid:
+                messages.success(request, f'{user_address} called for {bid}')
+            else:
+                bided_form.user = current_user
+                bided_form.product = product_address
+                bided_form.save()
+                messages.success(request, f'latest bid {bid}')
+
+    else:
+        form = bid_form()
+
+    return render(request, 'products/product_view.html', {'form': form, 'title': title, 'bidded_products': bidded_products, 'product_address': product_address})
+
+
             # bid_receipt = user_bidding.objects.filter(product=product_address,user=user_address).first()
             # print(bid_receipt)
 
             # if bid_receipt:
             #     bid_receipt.final_bid = bid
             #     bid_receipt.save()
-
-            checkin_bid = user_bidding.objects.filter(product=product_address,user=user_address).update(final_bid = bid) 
-            if checkin_bid:
-                messages.success(request,f'{user_address} called for {bid}')
-            else:
-                bided_form.user = current_user
-                bided_form.product = product_address
-                bided_form.save()
-                messages.success(request, f'latest bid {bid}')
-            
-    else:
-        form = bid_form()
-
-    return render(request, 'products/product_view.html', {'form': form, 'title': title,'bidded_products':bidded_products,'product_address':product_address})
-
-
-
 
 # class product_detail_view(DetailView):
 #     model = product_info
