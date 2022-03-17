@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets,permissions
 from .models import *
 from .serializers import *
 
@@ -12,6 +12,7 @@ class product_apiView(viewsets.ModelViewSet):
 	queryset = product_info.objects.all()
 	#context={'localhost': 'request'}
 	serializer_class= productSerializer
+	#permission_classes=(permissions.IsAuthenticatedOrReadOnly)
 
 class auctioned_products_view(viewsets.ModelViewSet):
 	queryset= auctioned_product.objects.all()
